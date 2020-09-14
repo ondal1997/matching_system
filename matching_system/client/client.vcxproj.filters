@@ -31,6 +31,9 @@
     <ClCompile Include="client.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="win32_client.h">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="client.rc">
