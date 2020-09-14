@@ -151,6 +151,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="server.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="win32_server.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="server.cpp" />

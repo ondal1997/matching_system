@@ -1,5 +1,6 @@
 ﻿#include "framework.h"
 #include "client.h"
+#include "win32_client.h"
 
 #define MAX_LOADSTRING 100
 
@@ -29,6 +30,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		return FALSE;
 	}
 
+	if (!startup_client())
+	{
+		return FALSE;
+	}
+
 	MSG msg;
 
 	while (GetMessage(&msg, nullptr, 0, 0))
@@ -36,6 +42,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 	}
+
+	cleanup_client();
 
 	return (int)msg.wParam;
 }
@@ -82,6 +90,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
 	{
+	case WM_SOCKET:
+		switch (WSAGETSELECTEVENT(lParam))
+		{
+		case FD_READ:
+			break;
+		case FD_CLOSE:
+			break;
+		}
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;

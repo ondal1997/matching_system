@@ -26,6 +26,9 @@
     <ClInclude Include="targetver.h">
       <Filter>소스 파일\win32</Filter>
     </ClInclude>
+    <ClInclude Include="win32_server.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="server.cpp">
